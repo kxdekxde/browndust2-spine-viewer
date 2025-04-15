@@ -44,6 +44,6 @@ A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.
 
 `Refresh Mods List`: If you renamed, moved or deleted the mods then use this button to refresh the mods list to show the changes.
 
-`Rename`: Renames your mods directly from the GUI. It's not necessary to use `_` in this case.
+`Rename`: Renames your mods folders directly from the GUI.
 
 

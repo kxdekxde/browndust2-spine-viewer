@@ -1,5 +1,5 @@
 # Brown Dust II Spine Viewer
-A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.com/spine-skeleton-viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations or any other compatible game that uses Spine.
+A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.com/spine-skeleton-viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations using exported assets.
 
 
 

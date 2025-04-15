@@ -4,7 +4,7 @@ setlocal
 :: Set the paths
 set SCRIPT_NAME=BD2pineViewer.pyw
 set ICON_NAME=icon.ico
-set SHORTCUT_NAME=BrownDust II Spine Viewer.lnk
+set SHORTCUT_NAME=Brown Dust II Spine Viewer.lnk
 
 :: Get the current directory
 set "CURRENT_DIR=%~dp0"

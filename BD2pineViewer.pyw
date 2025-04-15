@@ -191,7 +191,7 @@ class SpineViewer(QWidget):
     def __init__(self):
         super().__init__()
         self.settings_file = "spine_viewer_settings.json"
-        self.setWindowTitle("BrownDust II Spine Viewer")
+        self.setWindowTitle("Brown Dust II Spine Viewer")
         self.setGeometry(100, 100, 1000, 600)
         self.viewer_processes = []
 

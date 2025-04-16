@@ -1,7 +1,8 @@
 # Executable Version
 
 
-If you want to compile it into an .exe file install PyInstaller first
+If you want to compile it into an .exe file install PyInstaller first.
+
     ```
     pip install PyInstaller
     ```

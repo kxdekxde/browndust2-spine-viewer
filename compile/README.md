@@ -3,9 +3,7 @@
 
 If you want to compile it into an .exe file install PyInstaller first.
 
-    ```
     pip install PyInstaller
-    ```
 	
 Put the files above in the same directory like this:
 

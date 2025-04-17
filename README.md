@@ -46,7 +46,7 @@ A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.
 
 `Rename`: Renames your mods folders directly from the GUI.
 
-## EXE Version:
+## EXE/Portable Version:
 
 Download the .exe version [here](https://www.mediafire.com/file/iahk9r91u1xrpta/BD2pineViewer.7z/file), for this version you just need to install [Zulu JDK](https://cdn.azul.com/zulu/bin/zulu21.40.17-ca-jdk21.0.6-win_x64.msi).
 

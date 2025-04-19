@@ -1,6 +1,15 @@
 # Brown Dust II Spine Viewer
 A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.com/spine-skeleton-viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations using exported assets.
 
+## Portable Version
+If you don't want to install the stuff below you can download this portable version.
+
+
+<p align="center">
+  👉<a href="https://www.mediafire.com/file/iahk9r91u1xrpta/BD2pineViewer.7z/file"><strong>DOWNLOAD HERE</strong></a>👈
+</p>
+
+
 
 
 ## Requirements to use this tool:

@@ -53,3 +53,13 @@ If you don't want to install the stuff below to use the scripts you can download
 `Refresh Mods List`: If you renamed, moved or deleted the mods then use this button to refresh the mods list to show the changes.
 
 `Rename`: Renames your mods folders directly from the GUI.
+
+
+## How to build:
+```
+pyinstaller --onefile --windowed --icon="icon.ico" ^
+--add-data "icon.png;." ^
+--add-data "spine_viewer_settings.json;." ^
+--add-data "BD2 Characters - Characters.csv;." ^
+BD2pineViewer.pyw
+```

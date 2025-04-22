@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Brown Dust II Spine Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/pixi.min.js"></script>
+    <script src="assets/js/pixi-spine.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<header id="header">
+    <span class="title icon">
+        <img src="./assets/image/otogi.ico" alt="">
+        Brown Dust II Spine Viewer
+    </span>
+    <button class="control-button minimize" onclick="preload.minimize()">一</button>
+    <button class="control-button maximize" onclick="preload.toggleMaximize()" id="maximize-icon">▢</button>
+    <button class="control-button close" onclick="preload.close()">✖</button>
+</header>
+<main id="main">
+    <div id="mask">Drag the skeleton file here</div>
+    <div id="side">
+        <div class="row">
+            <input type="file" id="fileInput" multiple accept=".json,.skel" placeholder="da">
+            <span style="display:flex;gap: 7px">
+                <span>Overlay</span>
+                <span class="i-checkbox-wrap" style="margin-bottom: 2px">
+                    <input type="checkbox" id="superposition" class="i-checkbox">
+                    <label for="superposition" class="i-label"></label>
+                </span>
+            </span>
+            <button onclick="reload()">Reset</button>
+        </div>
+        <div class="row">
+            <label for="zoom" class="option-label">Zoom</label>
+            <input type="range" id="zoom" value="100" min="10" max="500" step="1">
+            <span id="zoom-show" class="option-value">100%</span>
+            <button onclick="resetZoom()">Reset</button>
+        </div>
+        <div class="row">
+            <label for="speed" class="option-label">Speed</label>
+            <input type="range" id="speed" value="1" min="0" max="5" step="0.01">
+            <span id="speed-show" class="option-value">1.00x</span>
+            <button onclick="resetSpeed()">Reset</button>
+        </div>
+        <div class="row">
+            <label for="default-mix" class="option-label">Mix</label>
+            <input type="range" id="default-mix" value="0" min="0" max="2" step="0.1">
+            <span id="default-mix-show" class="option-value">0.0s</span>
+            <button onclick="resetMix()">Reset</button>
+        </div>
+        <div class="row">
+            <span>TransparencyMode</span>
+            <span class="option-bar">
+                <label class="alpha-mode-radio" for="NPM" id="NPM-label">NPM</label>
+                <label class="alpha-mode-radio checked" for="UNPACK" id="UNPACK-label">UNPACK</label>
+                <label class="alpha-mode-radio" for="PMA" id="PMA-label">PMA</label>
+                <input type="radio" name="alpha-mode" id="NPM" value="0" style="display: none">
+                <input type="radio" name="alpha-mode" id="UNPACK" value="1" style="display: none" checked>
+                <input type="radio" name="alpha-mode" id="PMA" value="2" style="display: none">
+            </span>
+        </div>
+        <div class="row">
+            <label for="colorInput">BackgroundColor</label>
+            <span class="bg-wrap">
+                <span>Transparent</span>
+                <span class="i-checkbox-wrap">
+                    <input type="checkbox" id="bg-transparent" class="i-checkbox" checked>
+                    <label for="bg-transparent" class="i-label"></label>
+                </span>
+                <input type="color" id="colorInput" value="#616066">
+            </span>
+        </div>
+        <div class="row">
+            <button onclick="resetPosition()" style="width: 70px">ResetPosition</button>
+            <button onclick="pauseAnimation()" style="width: 70px">PauseAnimation</button>
+        </div>
+
+        <div class="col">
+            <span class="animation-label">Skin</span>
+            <ol class="list" id="skins"></ol>
+        </div>
+        <div class="col">
+            <div class="row-label">
+                Animation
+                <ol class="track-wrap">
+                    <li>
+                        <input type="radio" name="track" id="animation-track0" value="0" class="track-radio" checked>
+                        <label for="animation-track0" class="animation-track">0</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track1" value="1" class="track-radio">
+                        <label for="animation-track1" class="animation-track">1</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track2" value="2" class="track-radio">
+                        <label for="animation-track2" class="animation-track">2</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track3" value="3" class="track-radio">
+                        <label for="animation-track3" class="animation-track">3</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track4" value="4" class="track-radio">
+                        <label for="animation-track4" class="animation-track">4</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track5" value="5" class="track-radio">
+                        <label for="animation-track5" class="animation-track">5</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="track" id="animation-track6" value="6" class="track-radio">
+                        <label for="animation-track6" class="animation-track">6</label>
+                    </li>
+                </ol>
+                <button onclick="openExportWindow()">Export</button>
+            </div>
+            <ol class="list" id="animations"></ol>
+        </div>
+        <div class="col">
+            <span class="row-label">
+                Slots
+                <button onclick="resetSlots()">Reset</button>
+            </span>
+            <ol class="list" id="slots"></ol>
+        </div>
+    </div>
+    <div id="scene">
+        <div id="resolution">
+            <div>Width: <span id="resolution-width"></span>px</div>
+            <div>Height: <span id="resolution-height"></span>px</div>
+        </div>
+    </div>
+</main>
+<script src="js/util.js"></script>
+<script src="renderer.js"></script>
+<script src="js/listener.js"></script>
+<script src="js/operator.js"></script>
+<script>
+    // Add loading indicator
+    document.addEventListener('DOMContentLoaded', () => {
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.id = 'loading-indicator';
+        loadingIndicator.style.position = 'fixed';
+        loadingIndicator.style.top = '0';
+        loadingIndicator.style.left = '0';
+        loadingIndicator.style.width = '100%';
+        loadingIndicator.style.height = '3px';
+        loadingIndicator.style.backgroundColor = '#4CAF50';
+        loadingIndicator.style.zIndex = '9999';
+        loadingIndicator.style.transition = 'width 0.3s';
+        document.body.appendChild(loadingIndicator);
+
+        // Simulate loading progress
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            loadingIndicator.style.width = `${progress}%`;
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingIndicator.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingIndicator.remove();
+                    }, 300);
+                }, 300);
+            }
+        }, 100);
+    });
+</script>
+</body>
+</html>

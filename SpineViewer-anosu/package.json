@@ -1,0 +1,100 @@
+{
+  "name": "spine-viewer",
+  "version": "1.1.2",
+  "description": "Spine Animation Viewer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "start-cli": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "build": "npm run make",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package-portable": "electron-packager . SpineViewer --platform=win32 --arch=x64 --out=dist-portable --overwrite --icon=src/assets/image/otogi.ico --prune=true --extra-resource=ffmpeg --extra-resource=src/assets",
+    "build-portable": "npm run package-portable && cd dist-portable && zip -r ../SpineViewer-portable.zip SpineViewer-win32-x64"
+  },
+  "author": "KXDE",
+  "license": "ISC",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true,
+        "extraResource": [
+          "ffmpeg"
+        ],
+        "fileAssociations": [
+          {
+            "ext": "skel",
+            "name": "Spine Skeleton File",
+            "description": "Spine Animation File",
+            "role": "Viewer",
+            "icon": "assets/image/otogi.ico"
+          },
+          {
+            "ext": "json",
+            "name": "Spine JSON File",
+            "description": "Spine Animation JSON",
+            "role": "Viewer",
+            "icon": "assets/image/otogi.ico"
+          }
+        ],
+        "win32metadata": {
+          "FileDescription": "Spine Animation Viewer",
+          "ProductName": "Spine Viewer",
+          "InternalName": "SpineViewer",
+          "requested-execution-level": "asInvoker"
+        }
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "SpineViewer",
+            "exe": "SpineViewer.exe",
+            "setupExe": "SpineViewerSetup.exe",
+            "iconUrl": "https://raw.githubusercontent.com/kxdekxde/browndust2-spine-viewer/refs/heads/main/icon.ico",
+            "noMsi": true,
+            "remoteReleases": ""
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "linux"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-auto-unpack-natives",
+          {}
+        ]
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-is-dev": "^3.0.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "pixi-spine": "^3.0.12",
+    "pixi.js": "^6.5.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.0.5",
+    "electron": "^22.0.0",
+    "electron-packager": "^17.1.2"
+  }
+}

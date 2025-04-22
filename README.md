@@ -1,8 +1,8 @@
 # Brown Dust II Spine Viewer
-A simple tool that uses [Esoteric Skeleton Viewers](https://en.esotericsoftware.com/spine-skeleton-viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations using exported assets.
+A simple tool that uses a modified version of [anosu's Spine Viewer](https://github.com/anosu/Spine-Viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations using exported assets.
 
 ## Portable Version
-If you don't want to install the stuff below you can download this portable version.
+If you don't want to install the stuff below to use the scripts you can download this portable version ready for usage.
 
 
 <p align="center">
@@ -12,12 +12,11 @@ If you don't want to install the stuff below you can download this portable vers
 
 
 
-## Requirements to use this tool:
+## Requirements to use the scripts:
 
   - Download and install [.NET SDK 8](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-8.0.404-windows-x64-installer).
   - Download and install [Python](https://www.python.org/downloads/), along with all of the addons included (pip, etc) and enable 'PATH' as well.
   - Download and install [Microsoft C++ Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe), and after that install the necessary libraries following [this video](https://files.catbox.moe/vqsuix.mp4).
-  - Download and install [Zulu JDK](https://cdn.azul.com/zulu/bin/zulu21.40.17-ca-jdk21.0.6-win_x64.msi).
   - Open CMD and type:
     ```
     pip install UnityPy PyQt6 requests
@@ -54,5 +53,3 @@ If you don't want to install the stuff below you can download this portable vers
 `Refresh Mods List`: If you renamed, moved or deleted the mods then use this button to refresh the mods list to show the changes.
 
 `Rename`: Renames your mods folders directly from the GUI.
-
-

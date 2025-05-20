@@ -45,7 +45,7 @@ If you don't want to install the stuff below to use the scripts you can download
 
 6. This is optional, double-click on _CREATE_SHORTCUT.bat_ if you want to create a shortcut for the viewer on your Desktop.
 
-# Update 2.0 Version
+# Update 2.0 Version:
 
 Changed the GUI style to something a bit better.
 

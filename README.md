@@ -27,8 +27,8 @@ If you don't want to install the stuff below to use the scripts you can download
 
 ## Usage:
 
-1. Double-click on _BD2pineViewer.pyw_ and the script will start to download the required files.
-2. After to finish the downloads the script will ask the user for the path to your BDX "mods" folder, click OK on the message box.
+1. Double-click on _BD2pineViewer.pyw_.
+2. The script will ask the user for the path to your BDX "mods" folder, click OK on the message box.
 3. You will see this GUI:
 
 

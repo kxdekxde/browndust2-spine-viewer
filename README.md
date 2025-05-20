@@ -15,10 +15,9 @@ If you don't want to install the stuff below to use the scripts you can download
 ## Requirements to use the scripts:
 
   - Download and install [Python](https://www.python.org/downloads/), along with all of the addons included (pip, etc) and enable 'PATH' as well.
-  - Download and install [Microsoft C++ Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe), and after that install the necessary libraries following [this video](https://files.catbox.moe/vqsuix.mp4).
   - Open CMD and type:
     ```
-    pip install UnityPy==1.21 PyQt6 requests
+    pip install PyQt6 requests
     ```
     Hit Enter to install.
   

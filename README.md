@@ -62,7 +62,7 @@ You can see that the deactivated mods have got red-colored letters, and the mods
 
 ### Buttons:
 
-`Preview`: Open the corresponding skeleton viewer version to see the Spine animation. If the mod folder only contains an image then the viewer will use the user default images viewer to open that image.
+`Preview`: Open the Spine viewer to see the Spine animation. If the mod folder only contains an image then the viewer will use the user default images viewer to open that image.
 
 `Refresh Mods List`: If you renamed, moved or deleted the mods then use this button to refresh the mods list to show the changes.
 

@@ -46,6 +46,21 @@ If you don't want to install the stuff below to use the scripts you can download
 
 6. This is optional, double-click on _CREATE_SHORTCUT.bat_ if you want to create a shortcut for the viewer on your Desktop.
 
+# Update 2.0 Version
+
+Changed the GUI style to something a bit better.
+
+
+<img src="https://files.catbox.moe/80tnd1.png" width="700"/>
+
+
+Added the new function to activate/deactivate mods, with this function you can have multiple mods for the same character in your "mods" folder and to leave the one you want to use activated.
+
+
+<img src="https://files.catbox.moe/0p907b.png" width="700"/>
+
+You can see that the deactivated mods have got red-colored letters, and the mods active have got green-colored letters.
+
 ### Buttons:
 
 `Preview`: Open the corresponding skeleton viewer version to see the Spine animation. If the mod folder only contains an image then the viewer will use the user default images viewer to open that image.
@@ -54,8 +69,10 @@ If you don't want to install the stuff below to use the scripts you can download
 
 `Rename`: Renames your mods folders directly from the GUI.
 
+`Activate/Deactivate`: Deactivate or activate mods, with this function you can have multiple mods for the same character and to activate the one you want to use faster.
 
-## How to build:
+
+## How to build the executable with PyInstaller:
 ```
 pyinstaller --onefile --windowed --icon="icon.ico" ^
 --add-data "icon.png;." ^

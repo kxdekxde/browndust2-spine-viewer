@@ -13,7 +13,7 @@ from PyQt6.QtWidgets import (
     QScrollArea, QHBoxLayout, QLabel, QLineEdit,
     QFileDialog, QMessageBox, QProgressDialog
 )
-from PyQt6.QtGui import QIcon
+from PyQt6.QtGui import QIcon, QColor, QPalette
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 
 # GitHub configuration
@@ -103,21 +103,14 @@ class SpineViewer(QWidget):
         self.setGeometry(100, 100, 1000, 600)
         self.viewer_controller = SpineViewerController()
 
+        # Apply Windows 11 dark theme
+        self.set_windows11_dark_theme()
+
         # Check for updates before loading anything
         self.check_github_updates()
 
         self.character_map = self.load_character_map()
         self.settings = self.load_settings()
-
-        self.setStyleSheet("""
-            QWidget { background-color: #252525; color: white; }
-            QPushButton { background-color: #444; border: 1px solid #555; padding: 5px; min-width: 80px; }
-            QPushButton:hover { background-color: #555; }
-            QScrollArea { border: none; }
-            QLineEdit { background-color: #333; color: white; padding: 5px; border: 1px solid #555; }
-            QProgressDialog { background-color: #252525; color: white; }
-            QProgressBar { background-color: #333; color: white; border: 1px solid #555; text-align: center; }
-        """)
 
         main_layout = QVBoxLayout()
 
@@ -154,6 +147,161 @@ class SpineViewer(QWidget):
 
         self.verify_mods_folder()
         self.folder_edit.textChanged.connect(self.folder_path_changed)
+
+    def set_windows11_dark_theme(self):
+        """Apply Windows 11 style dark theme to the application"""
+        app = QApplication.instance()
+        
+        # Enable dark title bar on Windows
+        if sys.platform == "win32":
+            try:
+                from ctypes import windll, byref, sizeof, c_int
+                hwnd = int(self.winId())
+                for attribute in [19, 20]:  # Try both dark mode attributes
+                    try:
+                        value = c_int(1)
+                        windll.dwmapi.DwmSetWindowAttribute(
+                            hwnd,
+                            attribute,
+                            byref(value),
+                            sizeof(value)
+                        )
+                    except Exception as e:
+                        print(f"Dark title bar not supported (attribute {attribute}): {e}")
+            except Exception as e:
+                print(f"Dark title bar initialization failed: {e}")
+
+        # Create dark palette with correct parameter order
+        palette = QPalette()
+        # Regular colors
+        palette.setColor(QPalette.ColorRole.Window, QColor(32, 32, 32))
+        palette.setColor(QPalette.ColorRole.WindowText, QColor(240, 240, 240))
+        palette.setColor(QPalette.ColorRole.Base, QColor(25, 25, 25))
+        palette.setColor(QPalette.ColorRole.AlternateBase, QColor(53, 53, 53))
+        palette.setColor(QPalette.ColorRole.ToolTipBase, QColor(53, 53, 53))
+        palette.setColor(QPalette.ColorRole.ToolTipText, QColor(240, 240, 240))
+        palette.setColor(QPalette.ColorRole.Text, QColor(240, 240, 240))
+        palette.setColor(QPalette.ColorRole.Button, QColor(53, 53, 53))
+        palette.setColor(QPalette.ColorRole.ButtonText, QColor(240, 240, 240))
+        palette.setColor(QPalette.ColorRole.BrightText, QColor(255, 0, 0))
+        palette.setColor(QPalette.ColorRole.Link, QColor(42, 130, 218))
+        palette.setColor(QPalette.ColorRole.Highlight, QColor(42, 130, 218))
+        palette.setColor(QPalette.ColorRole.HighlightedText, QColor(240, 240, 240))
+        palette.setColor(QPalette.ColorRole.PlaceholderText, QColor(120, 120, 120))
+
+        # Disabled colors - correct parameter order
+        palette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.WindowText, QColor(127, 127, 127))
+        palette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.Text, QColor(127, 127, 127))
+        palette.setColor(QPalette.ColorGroup.Disabled, QPalette.ColorRole.ButtonText, QColor(127, 127, 127))
+
+        app.setPalette(palette)
+
+        # Set style sheet for additional styling
+        self.setStyleSheet("""
+            QWidget {
+                background-color: #202020;
+                color: #f0f0f0;
+                font-family: "Segoe UI", Arial, sans-serif;
+                font-size: 9pt;
+            }
+            QPushButton {
+                background-color: #2d2d2d;
+                border: 1px solid #3d3d3d;
+                border-radius: 4px;
+                padding: 5px 12px;
+                min-width: 80px;
+            }
+            QPushButton:hover {
+                background-color: #3d3d3d;
+                border: 1px solid #4d4d4d;
+            }
+            QPushButton:pressed {
+                background-color: #1d1d1d;
+            }
+            QScrollArea {
+                border: none;
+            }
+            QLineEdit {
+                background-color: #252525;
+                color: #f0f0f0;
+                padding: 5px;
+                border: 1px solid #3d3d3d;
+                border-radius: 4px;
+                selection-background-color: #3a6ea5;
+                selection-color: #ffffff;
+            }
+            QLineEdit:disabled {
+                background-color: #1a1a1a;
+                color: #7f7f7f;
+            }
+            QProgressDialog {
+                background-color: #202020;
+                color: #f0f0f0;
+            }
+            QProgressBar {
+                background-color: #252525;
+                color: #f0f0f0;
+                border: 1px solid #3d3d3d;
+                border-radius: 4px;
+                text-align: center;
+            }
+            QProgressBar::chunk {
+                background-color: #3a6ea5;
+                border-radius: 3px;
+            }
+            QLabel {
+                color: #f0f0f0;
+            }
+            QMessageBox {
+                background-color: #202020;
+            }
+            QMessageBox QLabel {
+                color: #f0f0f0;
+            }
+            QScrollBar:vertical {
+                border: none;
+                background: #252525;
+                width: 10px;
+                margin: 0px 0px 0px 0px;
+            }
+            QScrollBar::handle:vertical {
+                background: #3d3d3d;
+                min-height: 20px;
+                border-radius: 5px;
+            }
+            QScrollBar::add-line:vertical {
+                border: none;
+                background: none;
+                height: 0px;
+                subcontrol-position: bottom;
+                subcontrol-origin: margin;
+            }
+            QScrollBar::sub-line:vertical {
+                border: none;
+                background: none;
+                height: 0px;
+                subcontrol-position: top;
+                subcontrol-origin: margin;
+            }
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+                background: none;
+            }
+        """)
+
+    def get_modfile_path(self, folder_path):
+        """Find the .modfile or .mod file in the folder"""
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if file.lower().endswith('.modfile') or file.lower().endswith('.mod'):
+                    return os.path.join(root, file)
+        return None
+
+    def is_mod_active(self, folder_path):
+        """Check if mod is active by looking for .modfile extension"""
+        modfile_path = self.get_modfile_path(folder_path)
+        if modfile_path:
+            return modfile_path.lower().endswith('.modfile')
+        return False
 
     def get_character_id_from_folder(self, folder_path):
         """Scan folder recursively for .skel/.json files and extract character ID (case-insensitive)"""
@@ -279,6 +427,8 @@ class SpineViewer(QWidget):
     def add_mod_item(self, folder_name, folder_path):
         item_widget = QWidget()
         item_layout = QHBoxLayout(item_widget)
+        item_layout.setContentsMargins(5, 5, 5, 5)
+        item_layout.setSpacing(10)
 
         preview_btn = QPushButton("Preview")
         preview_btn.setFixedWidth(100)
@@ -286,7 +436,13 @@ class SpineViewer(QWidget):
         item_layout.addWidget(preview_btn)
 
         self.name_edit = QLineEdit(self.format_display_name(folder_name))
-        self.name_edit.setStyleSheet("color: white;")
+        
+        # Set text color based on mod activation status
+        if self.is_mod_active(folder_path):
+            self.name_edit.setStyleSheet("color: #4ec9b0;")  # Teal for active
+        else:
+            self.name_edit.setStyleSheet("color: #f48771;")  # Salmon for inactive
+            
         self.name_edit.setMinimumWidth(300)
         self.name_edit.setProperty("original_path", folder_path)
         item_layout.addWidget(self.name_edit)
@@ -295,7 +451,7 @@ class SpineViewer(QWidget):
         character_name = self.character_map.get(character_id, "Unknown")
         
         character_label = QLabel(character_name)
-        character_label.setStyleSheet("color: #999;")
+        character_label.setStyleSheet("color: #a6a6a6;")
         character_label.setAlignment(Qt.AlignmentFlag.AlignRight)
         character_label.setMinimumWidth(150)
         item_layout.addWidget(character_label)
@@ -305,7 +461,54 @@ class SpineViewer(QWidget):
         rename_btn.clicked.connect(self.rename_folder)
         item_layout.addWidget(rename_btn)
 
+        # Add Activate/Deactivate button
+        activate_btn = QPushButton("Activate" if not self.is_mod_active(folder_path) else "Deactivate")
+        activate_btn.setFixedWidth(100)
+        activate_btn.setProperty("folder_path", folder_path)
+        activate_btn.clicked.connect(self.toggle_mod_activation)
+        item_layout.addWidget(activate_btn)
+
         self.scroll_layout.addWidget(item_widget)
+
+    def toggle_mod_activation(self):
+        btn = self.sender()
+        if not btn:
+            return
+            
+        folder_path = btn.property("folder_path")
+        if not folder_path:
+            return
+            
+        modfile_path = self.get_modfile_path(folder_path)
+        if not modfile_path:
+            QMessageBox.warning(self, "Error", "No .modfile or .mod file found in this mod folder", QMessageBox.StandardButton.Ok)
+            return
+            
+        try:
+            if modfile_path.lower().endswith('.modfile'):
+                # Deactivate the mod
+                new_path = modfile_path[:-8] + '.mod'
+                os.rename(modfile_path, new_path)
+                btn.setText("Activate")
+            else:
+                # Activate the mod
+                new_path = modfile_path[:-4] + '.modfile'
+                os.rename(modfile_path, new_path)
+                btn.setText("Deactivate")
+                
+            # Update the text color in the QLineEdit
+            item_widget = btn.parentWidget()
+            if item_widget:
+                for child in item_widget.children():
+                    if isinstance(child, QLineEdit):
+                        if btn.text() == "Activate":
+                            child.setStyleSheet("color: #f48771;")  # Salmon for inactive
+                        else:
+                            child.setStyleSheet("color: #4ec9b0;")  # Teal for active
+                        break
+                        
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to toggle mod activation: {str(e)}", QMessageBox.StandardButton.Ok)
 
     def rename_folder(self):
         btn = self.sender()

@@ -1,4 +1,4 @@
-# Brown Dust II Spine Viewer
+# Brown Dust II Spine Viewer + Mod Manager
 A simple tool that uses a modified version of [anosu's Spine Viewer](https://github.com/anosu/Spine-Viewer) to view [Brown Dust 2](https://www.browndust2.com/en-us/) Spine animations using exported assets.
 
 ## Portable Version:

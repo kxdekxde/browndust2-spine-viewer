@@ -12,14 +12,11 @@ If you don't want to install the stuff below to use the scripts you can download
 
 
 
-## Requirements to use the scripts:
+## Requirements to use the script:
 
-  - Download and install [Python](https://www.python.org/downloads/), along with all of the addons included (pip, etc) and enable 'PATH' as well.
-  - Open CMD and type:
-    ```
-    pip install PyQt6 requests
-    ```
-    Hit Enter to install.
+  - Double click on _install_requirements.bat_ to install the necessary dependencies and Python 3.13.
+  
+NOTE: The requirements listed in "requirements.txt" are only for my GUI script, you will need to install the ones necessary for anosu's Spine Viewer separately (Electron, Node.js, etc).
   
   
 

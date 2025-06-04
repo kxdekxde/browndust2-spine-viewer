@@ -99,9 +99,10 @@ class SpineViewer(QWidget):
     def __init__(self):
         super().__init__()
         self.settings_file = os.path.join(get_base_path(), "spine_viewer_settings.json")
-        self.setWindowTitle("Brown Dust II Spine Viewer")
+        self.setWindowTitle("Brown Dust II Mod Manager")
         self.setGeometry(100, 100, 1000, 600)
         self.viewer_controller = SpineViewerController()
+        self.all_mod_items = []  # To store all mod items for filtering
 
         # Apply Windows 11 dark theme
         self.set_windows11_dark_theme()
@@ -114,6 +115,7 @@ class SpineViewer(QWidget):
 
         main_layout = QVBoxLayout()
 
+        # Mods folder selection bar
         folder_layout = QHBoxLayout()
         folder_layout.addWidget(QLabel("Mods Folder:"))
 
@@ -132,6 +134,21 @@ class SpineViewer(QWidget):
         folder_layout.addWidget(refresh_btn)
 
         main_layout.addLayout(folder_layout)
+
+        # Search bar for filtering mods
+        search_layout = QHBoxLayout()
+        search_layout.addWidget(QLabel("Search:"))
+
+        self.search_edit = QLineEdit()
+        self.search_edit.setPlaceholderText("Filter mods by name or character...")
+        self.search_edit.textChanged.connect(self.filter_mods)
+        search_layout.addWidget(self.search_edit)
+
+        clear_btn = QPushButton("Clear")
+        clear_btn.clicked.connect(self.clear_search)
+        search_layout.addWidget(clear_btn)
+
+        main_layout.addLayout(search_layout)
 
         self.scroll_area = QScrollArea()
         self.scroll_area.setWidgetResizable(True)
@@ -413,16 +430,22 @@ class SpineViewer(QWidget):
 
     def load_mods(self):
         mods_folder = self.settings.get("mods_folder", "")
+        # Clear existing items and the all_mod_items list
         while self.scroll_layout.count():
             item = self.scroll_layout.takeAt(0)
             if item.widget():
                 item.widget().deleteLater()
+        self.all_mod_items = []
+        
         if mods_folder and os.path.exists(mods_folder):
             for item in sorted(os.listdir(mods_folder)):
                 item_path = os.path.join(mods_folder, item)
                 if not os.path.isdir(item_path) or item.startswith('.'):
                     continue
                 self.add_mod_item(item, item_path)
+        
+        # Store all mod items for filtering
+        self.all_mod_items = [self.scroll_layout.itemAt(i).widget() for i in range(self.scroll_layout.count())]
 
     def add_mod_item(self, folder_name, folder_path):
         item_widget = QWidget()
@@ -435,17 +458,17 @@ class SpineViewer(QWidget):
         preview_btn.clicked.connect(lambda _, p=folder_path: self.preview_folder(p))
         item_layout.addWidget(preview_btn)
 
-        self.name_edit = QLineEdit(self.format_display_name(folder_name))
+        name_edit = QLineEdit(self.format_display_name(folder_name))
         
         # Set text color based on mod activation status
         if self.is_mod_active(folder_path):
-            self.name_edit.setStyleSheet("color: #4ec9b0;")  # Teal for active
+            name_edit.setStyleSheet("color: #4ec9b0;")  # Teal for active
         else:
-            self.name_edit.setStyleSheet("color: #f48771;")  # Salmon for inactive
+            name_edit.setStyleSheet("color: #f48771;")  # Salmon for inactive
             
-        self.name_edit.setMinimumWidth(300)
-        self.name_edit.setProperty("original_path", folder_path)
-        item_layout.addWidget(self.name_edit)
+        name_edit.setMinimumWidth(300)
+        name_edit.setProperty("original_path", folder_path)
+        item_layout.addWidget(name_edit)
 
         character_id = self.get_character_id_from_folder(folder_path)
         character_name = self.character_map.get(character_id, "Unknown")
@@ -469,6 +492,38 @@ class SpineViewer(QWidget):
         item_layout.addWidget(activate_btn)
 
         self.scroll_layout.addWidget(item_widget)
+        
+        # Store additional properties for filtering
+        item_widget.setProperty("display_name", self.format_display_name(folder_name))
+        item_widget.setProperty("character_name", character_name)
+
+    def filter_mods(self):
+        search_text = self.search_edit.text().lower()
+        
+        if not search_text:
+            # Show all items if search is empty
+            for i in range(self.scroll_layout.count()):
+                item = self.scroll_layout.itemAt(i)
+                if item.widget():
+                    item.widget().show()
+            return
+            
+        # Hide items that don't match the search
+        for i in range(self.scroll_layout.count()):
+            item = self.scroll_layout.itemAt(i)
+            if item.widget():
+                widget = item.widget()
+                display_name = widget.property("display_name").lower()
+                character_name = widget.property("character_name").lower()
+                
+                if search_text in display_name or search_text in character_name:
+                    widget.show()
+                else:
+                    widget.hide()
+
+    def clear_search(self):
+        self.search_edit.clear()
+        self.filter_mods()
 
     def toggle_mod_activation(self):
         btn = self.sender()

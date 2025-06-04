@@ -52,7 +52,14 @@ Added the new function to activate/deactivate mods, with this function you can h
 
 <img src="https://files.catbox.moe/0p907b.png" width="700"/>
 
+
 You can see that the deactivated mods have got red-colored letters, and the mods active have got green-colored letters.
+
+Added the search bar function to filter your mods list by author, character, idle, cutscene, etc.
+
+
+<img src="https://files.catbox.moe/3x1zcn.png" width="700"/>
+
 
 ### Buttons:
 
@@ -63,6 +70,8 @@ You can see that the deactivated mods have got red-colored letters, and the mods
 `Rename`: Renames your mods folders directly from the GUI.
 
 `Activate/Deactivate`: Deactivate or activate mods, with this function you can have multiple mods for the same character and to activate the one you want to use faster.
+
+`Clear`: Clear the search bar with one click.
 
 
 ## How to build the executable with PyInstaller:

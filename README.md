@@ -47,13 +47,11 @@ Changed the GUI style to something a bit better.
 <img src="https://files.catbox.moe/80tnd1.png" width="700"/>
 
 
-Added the new function to activate/deactivate mods, with this function you can have multiple mods for the same character in your "mods" folder and to leave the one you want to use activated.
+Added the new function to activate/deactivate mods, with this function you can have multiple mods for the same character in your "mods" folder and to leave the one you want to use activated. You can see that the deactivated mods have got red-colored letters, and the mods active have got green-colored letters.
 
 
 <img src="https://files.catbox.moe/0p907b.png" width="700"/>
 
-
-You can see that the deactivated mods have got red-colored letters, and the mods active have got green-colored letters.
 
 Added the search bar function to filter your mods list by author, character, idle, cutscene, etc.
 

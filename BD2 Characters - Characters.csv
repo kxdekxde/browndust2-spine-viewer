@@ -6,12 +6,13 @@ Lathel,char000101,Medicinal Herb Tracker,0bd04930e2db36642637cda0d6c531b5,537caf
 ,char000104,Dark Knight,0bd04930e2db36642637cda0d6c531b5,
 ,char000105,Promise of Vengance,0bd04930e2db36642637cda0d6c531b5,
 ,char000106,Pool Party,0bd04930e2db36642637cda0d6c531b5,
-Justia,char000201,Knight of Blood,0bd04930e2db36642637cda0d6c531b5,
+Justia,illust_dating7,Hot Summer Dream / DATING SIM,,dcde6611b3f7bc1adb9bb83c06f490cf
+,char000201,Knight of Blood,0bd04930e2db36642637cda0d6c531b5,
 ,char000202,White Reaper,0bd04930e2db36642637cda0d6c531b5,537cafcbb80a4169b187d30d1e3e5f90
 ,char000203,Blood Glutton,0bd04930e2db36642637cda0d6c531b5,537cafcbb80a4169b187d30d1e3e5f90
 ,char000204,Kendo Club,0bd04930e2db36642637cda0d6c531b5,537cafcbb80a4169b187d30d1e3e5f90
 ,char000206,Pool Party,0bd04930e2db36642637cda0d6c531b5,537cafcbb80a4169b187d30d1e3e5f90
-,,Hot Summer Dream,,
+,char000296,Hot Summer Dream,dcde6611b3f7bc1adb9bb83c06f490cf,dcde6611b3f7bc1adb9bb83c06f490cf
 Scheherazade,char000301,The Lapis Witch,0bd04930e2db36642637cda0d6c531b5,537cafcbb80a4169b187d30d1e3e5f90
 ,char000303,The Magic School Professor,0bd04930e2db36642637cda0d6c531b5,7142889e606101a7aa8ffe865520e2b1
 ,char000304,Code Name S,0bd04930e2db36642637cda0d6c531b5,7142889e606101a7aa8ffe865520e2b1
@@ -29,7 +30,7 @@ Olstein,char000601,The Fiend Scholar,0bd04930e2db36642637cda0d6c531b5,
 Eclipse,char000701,The Dimesion Witch,0bd04930e2db36642637cda0d6c531b5,7142889e606101a7aa8ffe865520e2b1
 ,char000706,Nightmare Bunny,0bd04930e2db36642637cda0d6c531b5,7142889e606101a7aa8ffe865520e2b1
 ,char000707,Beach Vacane,0bd04930e2db36642637cda0d6c531b5,757b3ca23889b4b77ff48523569f4932
-,,Dream Bride,,
+,char000708,Dream Bride,dcde6611b3f7bc1adb9bb83c06f490cf,dcde6611b3f7bc1adb9bb83c06f490cf
 Rubia,char000801,Thorn of the Desert,0bd04930e2db36642637cda0d6c531b5,e7996053a5c0a6863c58636ca913de0a
 ,char000804,The Empress of the Ocean,0bd04930e2db36642637cda0d6c531b5,b50762b84e8de3ec23e9855060231692
 ,char000806,Maid Name C,0bd04930e2db36642637cda0d6c531b5,b50762b84e8de3ec23e9855060231692
@@ -49,13 +50,13 @@ Layla,char003001,Anvil of Creation,92b7cf019930c114b460e480ff78c9ba,
 Elpis,char003101,Hand of Salvation,3fe097e714450526b41aa740f377f43c,844f4f4b7a514ff4ace0943f392e633b
 Loen,illust_dating3,Celebrity Bunny / DATING SIM,,5bb19337ee2db8742f128b1eb06595a2
 ,npc300501,Last Hope,e1974ea04ab8c8713259bfcca2c72e01,
-,char003201,,,537cafcbb80a4169b187d30d1e3e5f90
+,char003201,Last Hope,,537cafcbb80a4169b187d30d1e3e5f90
 ,char003202,Track and Field Team,92b7cf019930c114b460e480ff78c9ba,844f4f4b7a514ff4ace0943f392e633b
 ,char003203,Celebrity Bunny,3fe097e714450526b41aa740f377f43c,757b3ca23889b4b77ff48523569f4932
 Nebris,illust_dating1,New Hire / DATING SIM,,5bb19337ee2db8742f128b1eb06595a2
 ,char003301,Labyrinth Gatekeeper,3fe097e714450526b41aa740f377f43c,757b3ca23889b4b77ff48523569f4932
 ,char003302,Laid-back Lifeguard,92b7cf019930c114b460e480ff78c9ba,844f4f4b7a514ff4ace0943f392e633b
-,char061303,,,9b0a0f0b8e7394d6b512ec7a62a7102f
+,char061303,Laid-back Lifeguard,,9b0a0f0b8e7394d6b512ec7a62a7102f
 ,char003303,New Hire,3fe097e714450526b41aa740f377f43c,757b3ca23889b4b77ff48523569f4932
 Morpeah,illust_dating2,Daydream Bunny / DATING SIM,,5bb19337ee2db8742f128b1eb06595a2
 ,char003401,Beach Vacane,92b7cf019930c114b460e480ff78c9ba,844f4f4b7a514ff4ace0943f392e633b
@@ -115,7 +116,7 @@ Angelica,char066401,The Fallen,0b65c8351041f61dbb025f08fdc29708,9b0a0f0b8e7394d6
 ,char066403,Neon Savior,0b65c8351041f61dbb025f08fdc29708,9b0a0f0b8e7394d6b512ec7a62a7102f
 Refithea,char066801,The Gluttonous,0b65c8351041f61dbb025f08fdc29708,1aca0fada1e472a9e1d862118c75d168
 ,char066802,Pure White Blessing,0b65c8351041f61dbb025f08fdc29708,1aca0fada1e472a9e1d862118c75d168
-,,Poolside Fairy,,
+,char066803,Poolside Fairy,dcde6611b3f7bc1adb9bb83c06f490cf,dcde6611b3f7bc1adb9bb83c06f490cf
 Glacia,char066902,Alice,0b65c8351041f61dbb025f08fdc29708,1aca0fada1e472a9e1d862118c75d168
 ,char066906,Disciplinary Committee,0b65c8351041f61dbb025f08fdc29708,1aca0fada1e472a9e1d862118c75d168
 Ventana,char067002,Snow White,0b65c8351041f61dbb025f08fdc29708,1aca0fada1e472a9e1d862118c75d168
@@ -133,8 +134,9 @@ Michaela,char067401,Beachside Justice,0b65c8351041f61dbb025f08fdc29708,86b241327
 ,char067403,Acting Archbishop,771dee0a1f10a7a61dd7907da7c361de,82585cd6f0ed63493e554350eccb86e3
 Luvencia,char067502,Deal Snatcher,775d0448ae50de78755116ee5d3f5c95,86b241327d6a62af68e7652053919b0b
 ,char067503,Wild Dog,775d0448ae50de78755116ee5d3f5c95,86b241327d6a62af68e7652053919b0b
-Wilhelmina,char067601,Iron Monarch,c24d4c5494e2853eaa9b8b9dde402a2e,fde8e34a41364648cb0d5e11fb868465
-,,Water Park Queen,,
+Wilhelmina,illust_dating6,Water Park Queen / DATING SIM,,dcde6611b3f7bc1adb9bb83c06f490cf
+,char067601,Iron Monarch,c24d4c5494e2853eaa9b8b9dde402a2e,fde8e34a41364648cb0d5e11fb868465
+,char067603,Water Park Queen,dcde6611b3f7bc1adb9bb83c06f490cf,dcde6611b3f7bc1adb9bb83c06f490cf
 Gynt,char100101,Lupo Hunter,ecdfc15b23580667fa12c0d51a05db61,
 Fred,char100201,Lugo Defense Force,ecdfc15b23580667fa12c0d51a05db61,
 Lisianne,char100301,Wandering Priest,ecdfc15b23580667fa12c0d51a05db61,
@@ -204,4 +206,4 @@ Smol Liberta,npc400001,NPC,775d0448ae50de78755116ee5d3f5c95,
 Sonya,npc400011,NPC,f20c9496619cc5f1d225aca3935163d3,
 Kelian,specialillust60,Story Illust,2a9c9c92ccc927d6c92fa10db13f599f,
 Kelian,specialillust64,Story Illust,4e48947fda3cdd419930d5b389ecdd56,
-Scheherazade and Goblins,specialillust65,Goblin Slayer Collab Illust,dcde6611b3f7bc1adb9bb83c06f490cf,
+Scheherazade and Goblins,specialillust65,Event Illust,dcde6611b3f7bc1adb9bb83c06f490cf,
